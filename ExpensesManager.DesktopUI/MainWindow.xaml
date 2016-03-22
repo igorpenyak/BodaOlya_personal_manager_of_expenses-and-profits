@@ -1,0 +1,377 @@
+﻿<Window x:Class="ExpensesManager.DesktopUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExpensesManager.DesktopUI"
+        xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls" 
+        mc:Ignorable="d"
+        Title="Expenses manager"
+        WindowState="Maximized" 
+        Background="White"
+        Icon="/Images/main_icon.png" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="245"/>
+            <ColumnDefinition  Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Grid.RowSpan="3"  BorderBrush="LightSkyBlue" BorderThickness="1">
+            <StackPanel Orientation="Vertical">
+
+                <Expander Margin="5,2.5,5,2.5" Background="LightBlue" Foreground="White" Header="Add new Category" IsExpanded="False">
+                    <StackPanel>
+                        <TextBox Name="NewCategory" 
+                                 Margin="1" Custom:TextBoxHelper.Watermark="Enter category name hear..."/>
+                        <Button Name="AddNewCategory" Height="45" Width="220" Background="LightBlue"  HorizontalAlignment="Left" Margin="1" Click="AddNewCategory_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Height="24" Width="24" Fill="LightYellow" Margin="5">
+                                    <Rectangle.OpacityMask>
+                                        <ImageBrush  ImageSource="/Images/editing.png"  />
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                                <TextBlock Margin="1" Foreground="LightYellow" VerticalAlignment="Center"><Run Text="Add"/></TextBlock>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </Expander>
+                <Expander Margin="5,2.5,5,2.5" Background="LightBlue" Foreground="White" Header="Add new credit card" IsExpanded="False">
+                    <StackPanel>
+                        <TextBox Name="tbNewCraditCard" 
+                                 Margin="1" Custom:TextBoxHelper.Watermark="Enter card type here.."/>
+                        <TextBox Name="tbNewCraditCardNumber" MaxLength="16"
+                                 Margin="1" Custom:TextBoxHelper.Watermark="Enter card number here.."/>
+                        <TextBox Name="tbNewCraditCardBalance" 
+                                 Margin="1" Custom:TextBoxHelper.Watermark="Enter card balance here.."/>
+                        <DatePicker Name="dpNewCraditCardDate" 
+                                 Margin="1" Custom:TextBoxHelper.Watermark="Enter date off card here.."/>
+                        <Button Name="btnAddNewCReditCard" Height="45" Width="220" Background="LightBlue"  HorizontalAlignment="Left" Margin="1" Click="btnAddNewCReditCard_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Height="24" Width="24" Fill="LightYellow" Margin="5">
+                                    <Rectangle.OpacityMask>
+                                        <ImageBrush  ImageSource="/Images/credit.png"  />
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                                <TextBlock Margin="1" Foreground="LightYellow" VerticalAlignment="Center"><Run Text="Add"/></TextBlock>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </Expander>
+                <Expander Margin="5,2.5,5,2.5" Background="LightBlue" Foreground="White" Header="Credit card report" IsExpanded="False">
+                    <StackPanel Orientation="Vertical">
+                        <ComboBox x:Name="cbCreditCard" Margin="2.5,2.5,2.5,2.5" IsReadOnly="True"
+                    	Custom:TextBoxHelper.HasText="True" 
+                    	Custom:TextBoxHelper.UseFloatingWatermark="True" 
+                    	Custom:TextBoxHelper.Watermark="Sorting by credit card"
+                    	/>
+
+                        <DatePicker x:Name="dpDateFrom" Margin="2.5,2.5,2.5,2.5" IsManipulationEnabled="True" Custom:TextBoxHelper.HasText="True" Custom:TextBoxHelper.Watermark="Date from"/>
+                        <DatePicker x:Name="dpDateTo" Margin="2.5,2.5,2.5,2.5" IsManipulationEnabled="True" Custom:TextBoxHelper.HasText="True" Custom:TextBoxHelper.Watermark="Date to"/>
+                        <Button Name="btnSortByDate" Margin="2.5" Height="45" Width="225" Background="LightBlue"  HorizontalAlignment="Left"  Click="btnSortByDate_Click" >
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Height="24" Width="24" Fill="LightYellow" Margin="2.5">
+                                    <Rectangle.OpacityMask>
+                                        <ImageBrush  ImageSource="/Images/sort.png"  />
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                                <TextBlock Margin="1" Foreground="LightYellow" VerticalAlignment="Center"><Run Text="See credit card history"/></TextBlock>
+                            </StackPanel>
+                        </Button>
+
+                    </StackPanel>
+                </Expander>
+                <Expander Margin="5,5,5,5" Background="LightBlue" Header="real vs planing expenses" IsExpanded="False">
+                    <StackPanel>
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                            <DatePicker Name="dpDateDifFrom"  IsManipulationEnabled="True" 
+                                 Custom:TextBoxHelper.UseFloatingWatermark="True" 
+                                 Margin="1,1,2.5,2.5" Custom:TextBoxHelper.Watermark="Date from.."/>
+                            <DatePicker Name="dpDateDifTo" Width="218" IsManipulationEnabled="True" 
+                                 Custom:TextBoxHelper.UseFloatingWatermark="True" 
+                                 Margin="1,1,2.5,2.5" Custom:TextBoxHelper.Watermark="Date To.."/>
+
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Name="btnCalculateDif" Height="45" Width="220" 
+                                    Background="LightBlue"  HorizontalAlignment="Left" Margin="1" Click="btnCalculateDif_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <Rectangle Height="20" Width="20" Fill="LightYellow" Margin="5">
+                                        <Rectangle.OpacityMask>
+                                            <ImageBrush  ImageSource="/Images/main_icon.png"  />
+                                        </Rectangle.OpacityMask>
+                                    </Rectangle>
+                                    <TextBlock Margin="1" Foreground="LightYellow" VerticalAlignment="Center"><Run Text="Show"/></TextBlock>
+                                </StackPanel>
+                            </Button>
+
+                        </StackPanel>
+                    </StackPanel>
+                </Expander>
+            </StackPanel>
+        </Border>
+        <Border BorderBrush="LightSkyBlue" BorderThickness="1" Grid.Column="1" Grid.Row="2"/>
+        <Border Grid.Column="1" Grid.Row="0"  BorderBrush="LightSkyBlue" BorderThickness="1">
+            <StackPanel Orientation="Vertical" Margin="2.5">
+                <Border Background="LightBlue" Margin="2.5,0,2.5,0">
+                    <TextBlock Foreground="LightGoldenrodYellow" FontSize="22" HorizontalAlignment="Right"><Run Text=""/></TextBlock>
+                </Border>
+                <StackPanel Orientation="Horizontal">
+                    <ComboBox x:Name="cbCategory" Margin="5,2.5,2.5,2.5" IsReadOnly="True"
+                		Custom:TextBoxHelper.HasText="True" 
+                		Custom:TextBoxHelper.UseFloatingWatermark="True" 
+                		Custom:TextBoxHelper.Watermark="Sorting by category"
+                      DropDownClosed="cbCategory_DropDownClosed"/>
+                    <DatePicker x:Name="dpDateSort" Margin="2.5, 2,0,4" IsManipulationEnabled="True" Custom:TextBoxHelper.HasText="True" SelectedDateChanged="dpDateSort_SelectedDateChanged" Custom:TextBoxHelper.Watermark="Sort by date"/>
+                    <Button Name="btnReset" Height="39" Width="auto" 
+                                    Background="LightBlue"  HorizontalAlignment="Left" Margin="2.5, 2,0,4" Click="btnReset_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Rectangle Height="20" Width="20" Fill="LightYellow" Margin="5">
+                                <Rectangle.OpacityMask>
+                                    <ImageBrush  ImageSource="/Images/cancel.png"  />
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                            <TextBlock Margin="1" Foreground="LightYellow" VerticalAlignment="Center"><Run Text="Reset filters"/></TextBlock>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+        <TabControl Name="tcTransactions" Grid.Column="1" Grid.Row="1" Custom:TabControlHelper.IsUnderlined="True" FontSize="14">
+            <TabItem Name="tbiExpenses" Header="Expenses" >
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Vertical" Grid.Row="0">
+                        <DataGrid Name="dgExpensedGrid" SelectedCellsChanged="dgExpensedGrid_SelectedCellsChanged" AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="№"   Binding="{Binding Id}"/>
+                                <DataGridTextColumn Header="Name" Width="140" Binding="{Binding Name}"/>
+                                <DataGridTextColumn Header="Cost"  Width="120" Binding="{Binding Cost}" />
+                                <DataGridTextColumn Header="Credit Card" Width="210" Binding="{Binding CreditCard}" />
+                                <DataGridTextColumn Header="Category"  Width="130" Binding="{Binding CategoryName}" />
+                                <DataGridTextColumn Header="Date"  Width="180" Binding="{Binding CreationDate}"/>
+                                <DataGridTextColumn Header="Recurrence frequency"  Width="180" Binding="{Binding RepeatableType}"/>
+
+                            </DataGrid.Columns>
+
+                        </DataGrid>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Row="1">
+                        <StackPanel Orientation="Horizontal" Background="LightBlue" Margin="5">
+                            <Label Content="Real expense:"/>
+                            <TextBlock Name="tblSumExpenses" Background="White" Width="120"  Height="30" Margin="0,5,0,0"/>
+                            <Label Content="Planing expense:"  Margin="10,0,0,0"/>
+                            <TextBlock Name="tblSumPlaningExpenses" Background="White" Width="120" Margin="0,5,0,0" Height="30"/>
+                            <Label Content="Planing expenses - real expenses:" Margin="10,0,0,0"/>
+                            <TextBlock Name="tblDifference" Width="120" Margin="0,5,0,0" Height="30" Background="White"/>
+                        </StackPanel>
+                        <Expander Margin="5,0,0,4" Background="LightBlue" Header="Add new expense" IsExpanded="True">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBox Name="tbNewExpenseName" Width="160" 
+                                 Margin="1,1,2.5,2.5" Custom:TextBoxHelper.Watermark="Enter expense name here.."/>
+                                    <TextBox Name="tbNewExpenseCost" Width="160"  
+                                 Margin="2.5,1,2.5,2.5" Custom:TextBoxHelper.Watermark="Enter cost here..."/>
+                                    <ComboBox Name="cbNewExpenseCategory" Width="160" IsManipulationEnabled="True" 
+                                 Custom:TextBoxHelper.UseFloatingWatermark="True" 
+                                 Margin="2.5,1,2.5,2.5" Custom:TextBoxHelper.Watermark="Choose category">
+                                    </ComboBox>
+                                    <DatePicker Name="dpNewExpenseCreation" Width="160"  IsManipulationEnabled="True" 
+                                 Custom:TextBoxHelper.UseFloatingWatermark="True" 
+                                 Margin="1,1,2.5,2.5" Custom:TextBoxHelper.Watermark="Date of expense.." SelectedDateFormat="Short" />
+                                    <ComboBox Name="cbNewExpenseCraditCard" Width="160" IsManipulationEnabled="True" 
+                                 Custom:TextBoxHelper.UseFloatingWatermark="True" 
+                                 Margin="2.5,1,2.5,2.5" Custom:TextBoxHelper.Watermark="Choose credit card">
+                                    </ComboBox>
+                                    <ComboBox Name="cbNewExpenseRecurency" Width="160" IsManipulationEnabled="True" 
+                                 Custom:TextBoxHelper.UseFloatingWatermark="True" 
+                                 Margin="2.5,1,2.5,2.5" Custom:TextBoxHelper.Watermark="Choose recurency">
+                                    </ComboBox>
+
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Name="btnAddNewExpense" Height="45" Width="260" Background="LightBlue"  HorizontalAlignment="Left" Margin="1" Click="btnAddNewExpense_Click">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Rectangle Height="24" Width="24" Fill="LightYellow" Margin="5">
+                                                <Rectangle.OpacityMask>
+                                                    <ImageBrush  ImageSource="/Images/add.png"  />
+                                                </Rectangle.OpacityMask>
+                                            </Rectangle>
+                                            <TextBlock Margin="1" Foreground="LightYellow" VerticalAlignment="Center"><Run Text="Add"/></TextBlock>
+                                        </StackPanel>
+                                    </Button>
+                                    <Button Name="btnUpdateNewExpense" Height="45" Width="260" Background="LightBlue"  HorizontalAlignment="Left" Margin="1" Click="btnUpdateNewExpense_Click">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Rectangle Height="24" Width="24" Fill="LightYellow" Margin="5">
+                                                <Rectangle.OpacityMask>
+                                                    <ImageBrush  ImageSource="/Images/editing.png"  />
+                                                </Rectangle.OpacityMask>
+                                            </Rectangle>
+                                            <TextBlock Margin="1" Foreground="LightYellow" VerticalAlignment="Center"><Run Text="Update"/></TextBlock>
+                                        </StackPanel>
+                                    </Button>
+                                </StackPanel>
+                            </StackPanel>
+                        </Expander>
+                    </StackPanel>
+                </Grid>
+
+            </TabItem>
+            <TabItem Name="tbiIncomes" Header="Incomes" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <DataGrid Name="dgIncomesGrid" Grid.Row="0" SelectedCellsChanged="dgIncomesGrid_SelectedCellsChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="№" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header="Name" Width="140" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Cost"  Width="120" Binding="{Binding Cost}" />
+                            <DataGridTextColumn Header="Credit Card" Width="220" Binding="{Binding CreditCard}" />
+                            <DataGridTextColumn Header="Category"  Width="130" Binding="{Binding CategoryName}" />
+                            <DataGridTextColumn Header="Date"  Width="180" Binding="{Binding CreationDate}"/>
+                            <DataGridTextColumn Header="Recurrence frequency"  Width="180" Binding="{Binding RepeatableType}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Expander Margin="5,2.5,5,2.5" Background="LightBlue" Header="Add new income" IsExpanded="True" Grid.Row="1">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox Name="tbNewIncomeName" Width="160" 
+                                 
+                                 Margin="1,1,2.5,2.5" Custom:TextBoxHelper.Watermark="Enter income name hear.."/>
+                                <TextBox Name="tbNewIncomeCost" Width="160" 
+                                
+                                 Margin="2.5,1,2.5,2.5" Custom:TextBoxHelper.Watermark="Enter income rate hear..."/>
+                                <ComboBox Name="cbNewIncomeCategory" Width="160" IsManipulationEnabled="True" 
+                                 Custom:TextBoxHelper.UseFloatingWatermark="True" 
+                                 Margin="2.5,1,2.5,2.5" Custom:TextBoxHelper.Watermark="Choose category">
+                                </ComboBox>
+                                <DatePicker Name="dpNewIncomeCreation" Width="160" IsManipulationEnabled="True" 
+                                 Custom:TextBoxHelper.UseFloatingWatermark="True" 
+                                 Margin="1,1,2.5,2.5" Custom:TextBoxHelper.Watermark="Date of income.."/>
+                                <ComboBox Name="cbNewIncomeCraditCard" Width="160" IsManipulationEnabled="True" 
+                                 Custom:TextBoxHelper.UseFloatingWatermark="True" 
+                                 Margin="2.5,1,2.5,2.5" Custom:TextBoxHelper.Watermark="Choose credit card">
+                                </ComboBox>
+                                <ComboBox Name="cbNewIncomeRecurency" Width="160" IsManipulationEnabled="True" 
+                                 Custom:TextBoxHelper.UseFloatingWatermark="True" 
+                                 Margin="2.5,1,2.5,2.5" Custom:TextBoxHelper.Watermark="Choose recurency">
+                                </ComboBox>
+
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="btnAddNewIncome" Height="45" Width="260" Background="LightBlue"  HorizontalAlignment="Left" Margin="1,1,0,1" Click="btnAddNewIncome_Click">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Rectangle Height="24" Width="24" Fill="LightYellow" Margin="5">
+                                            <Rectangle.OpacityMask>
+                                                <ImageBrush  ImageSource="/Images/add.png"  />
+                                            </Rectangle.OpacityMask>
+                                        </Rectangle>
+                                        <TextBlock Margin="1" Foreground="LightYellow" Text="Add" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button Name="btnUpdateNewIncome" Height="45" Width="260" Margin="2.5" Background="LightBlue"  HorizontalAlignment="Left" Click="btnUpdateNewIncome_Click" >
+                                    <StackPanel Orientation="Horizontal">
+                                        <Rectangle Height="24" Width="24" Fill="LightYellow" Margin="5">
+                                            <Rectangle.OpacityMask>
+                                                <ImageBrush  ImageSource="/Images/editing.png"  />
+                                            </Rectangle.OpacityMask>
+                                        </Rectangle>
+                                        <TextBlock Margin="1" Foreground="LightYellow" VerticalAlignment="Center"><Run Text="Update"/></TextBlock>
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </Expander>
+                </Grid>
+            </TabItem>
+            <TabItem Name="tbiPlaningExpenses" Header="Planing expenses" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <DataGrid Name="dgPlaningTranGrid" SelectedCellsChanged="dgPlaningTranGrid_SelectedCellsChanged" Grid.Row="0" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="№" Binding="{Binding Id}" />
+                            <DataGridTextColumn Header="Name" Width="140" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Cost"  Width="120" Binding="{Binding Cost}" />
+                            <DataGridTextColumn Header="Credit Card" Width="220" Binding="{Binding CreditCard}" />
+                            <DataGridTextColumn Header="Category"  Width="130" Binding="{Binding CategoryName}" />
+                            <DataGridTextColumn Header="Date"  Width="180" Binding="{Binding CreationDate}"/>
+                            <DataGridTextColumn Header="Recurrence frequency"  Width="180" Binding="{Binding RepeatableType}"/>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Expander Margin="5,2.5,5,2.5" Background="LightBlue" Header="Add new planing expense" IsExpanded="True" Grid.Row="1">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox Name="tbNewPlaningName" Width="160" 
+                                 
+                                 Margin="1,1,2.5,2.5" Custom:TextBoxHelper.Watermark="Enter income name hear.."/>
+                                <TextBox Name="tbNewPlaningTranCost" Width="160" 
+                                
+                                 Margin="2.5,1,2.5,2.5" Custom:TextBoxHelper.Watermark="Enter income rate hear..."/>
+                                <ComboBox Name="cbNewPlaningTranCategory" Width="160" IsManipulationEnabled="True" 
+                                 Custom:TextBoxHelper.UseFloatingWatermark="True" 
+                                 Margin="2.5,1,2.5,2.5" Custom:TextBoxHelper.Watermark="Choose category">
+                                </ComboBox>
+                                <DatePicker Name="dpNewPlaninTranCreation" Width="160" IsManipulationEnabled="True" 
+                                 Custom:TextBoxHelper.UseFloatingWatermark="True" 
+                                 Margin="1,1,2.5,2.5" Custom:TextBoxHelper.Watermark="Date of income.."/>
+                                <ComboBox Name="cbNewPlaningTranCard" Width="160" IsManipulationEnabled="True" 
+                                 Custom:TextBoxHelper.UseFloatingWatermark="True" 
+                                 Margin="2.5,1,2.5,2.5" Custom:TextBoxHelper.Watermark="Choose credit card">
+                                </ComboBox>
+                                <ComboBox Name="cbNewPlaningTranRecurency" Width="160" IsManipulationEnabled="True" 
+                                 Custom:TextBoxHelper.UseFloatingWatermark="True" 
+                                 Margin="2.5,1,2.5,2.5" Custom:TextBoxHelper.Watermark="Choose recurency">
+                                </ComboBox>
+
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Name="AddPlaningTran" Height="45" Width="260" Background="LightBlue"  HorizontalAlignment="Left" Margin="1" Click="AddPlaningTran_Click">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Rectangle Height="24" Width="24" Fill="LightYellow" Margin="5">
+                                            <Rectangle.OpacityMask>
+                                                <ImageBrush  ImageSource="/Images/add.png"  />
+                                            </Rectangle.OpacityMask>
+                                        </Rectangle>
+                                        <TextBlock Margin="1" Foreground="LightYellow" Text="Add" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                </Button>
+                                <Button Name="btnUpdateNewPlaning" Height="45" Width="260" Background="LightBlue"  HorizontalAlignment="Left" Margin="1" Click="btnUpdateNewPlaning_Click">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Rectangle Height="24" Width="24" Fill="LightYellow" Margin="5">
+                                            <Rectangle.OpacityMask>
+                                                <ImageBrush  ImageSource="/Images/editing.png"  />
+                                            </Rectangle.OpacityMask>
+                                        </Rectangle>
+                                        <TextBlock Margin="1" Foreground="LightYellow" VerticalAlignment="Center"><Run Text="Update"/></TextBlock>
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </Expander>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="2">
+
+
+        </StackPanel>
+
+    </Grid>
+</Window>

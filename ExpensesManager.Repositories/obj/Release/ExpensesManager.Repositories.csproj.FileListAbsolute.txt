@@ -1,0 +1,7 @@
+F:\ExpensesManager\ExpensesManager.Repositories\bin\Release\ExpensesManager.Repositories.dll
+F:\ExpensesManager\ExpensesManager.Repositories\bin\Release\ExpensesManager.Repositories.pdb
+F:\ExpensesManager\ExpensesManager.Repositories\bin\Release\ExpensesManager.Entities.dll
+F:\ExpensesManager\ExpensesManager.Repositories\bin\Release\ExpensesManager.Entities.pdb
+F:\ExpensesManager\ExpensesManager.Repositories\obj\Release\ExpensesManager.Repositories.csprojResolveAssemblyReference.cache
+F:\ExpensesManager\ExpensesManager.Repositories\obj\Release\ExpensesManager.Repositories.dll
+F:\ExpensesManager\ExpensesManager.Repositories\obj\Release\ExpensesManager.Repositories.pdb
