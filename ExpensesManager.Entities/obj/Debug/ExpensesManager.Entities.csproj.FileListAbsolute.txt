@@ -1,4 +1,0 @@
-F:\ExpensesManager\ExpensesManager.Entities\bin\Debug\ExpensesManager.Entities.dll
-F:\ExpensesManager\ExpensesManager.Entities\bin\Debug\ExpensesManager.Entities.pdb
-F:\ExpensesManager\ExpensesManager.Entities\obj\Debug\ExpensesManager.Entities.dll
-F:\ExpensesManager\ExpensesManager.Entities\obj\Debug\ExpensesManager.Entities.pdb

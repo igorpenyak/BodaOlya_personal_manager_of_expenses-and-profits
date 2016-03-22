@@ -1,9 +1,0 @@
-F:\ExpensesManager\ExpensesManager.DataBase\bin\Debug\ExpensesManager.DataBase.dacpac
-F:\ExpensesManager\ExpensesManager.DataBase\obj\Debug\Model.xml
-F:\ExpensesManager\ExpensesManager.DataBase\obj\Debug\refactor.xml
-F:\ExpensesManager\ExpensesManager.DataBase\obj\Debug\postdeploy.sql
-F:\ExpensesManager\ExpensesManager.DataBase\obj\Debug\predeploy.sql
-F:\ExpensesManager\ExpensesManager.DataBase\obj\Debug\ExpensesManager.DataBase.dll
-F:\ExpensesManager\ExpensesManager.DataBase\obj\Debug\ExpensesManager.DataBase.pdb
-F:\ExpensesManager\ExpensesManager.DataBase\bin\Debug\ExpensesManager.DataBase.dll
-F:\ExpensesManager\ExpensesManager.DataBase\bin\Debug\ExpensesManager.DataBase.pdb

@@ -1,7 +1,0 @@
-F:\ExpensesManager\ExpensesManager.Repositories\bin\Debug\ExpensesManager.Repositories.dll
-F:\ExpensesManager\ExpensesManager.Repositories\bin\Debug\ExpensesManager.Repositories.pdb
-F:\ExpensesManager\ExpensesManager.Repositories\bin\Debug\ExpensesManager.Entities.dll
-F:\ExpensesManager\ExpensesManager.Repositories\bin\Debug\ExpensesManager.Entities.pdb
-F:\ExpensesManager\ExpensesManager.Repositories\obj\Debug\ExpensesManager.Repositories.csprojResolveAssemblyReference.cache
-F:\ExpensesManager\ExpensesManager.Repositories\obj\Debug\ExpensesManager.Repositories.dll
-F:\ExpensesManager\ExpensesManager.Repositories\obj\Debug\ExpensesManager.Repositories.pdb
