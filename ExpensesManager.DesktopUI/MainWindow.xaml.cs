@@ -190,10 +190,9 @@ namespace ExpensesManager.DesktopUI
             CreditCard creditCard = new CreditCard();
             try
             {
-                long number;
-                decimal balance;
-                decimal.TryParse(tbNewCraditCardBalance.Text, out balance);
-                long.TryParse(tbNewCraditCardNumber.Text, out number);
+               
+                decimal balance=decimal.Parse(tbNewCraditCardBalance.Text);
+                long number= long.Parse(tbNewCraditCardNumber.Text);
                 creditCard.Number = number;
                 creditCard.Type = tbNewCraditCard.Text;
                 creditCard.Balance = balance;
@@ -215,6 +214,7 @@ namespace ExpensesManager.DesktopUI
                 cbNewExpenseCraditCard.Items.Add(CreditCardToStrinConverter.Convert(creditCard.Type, creditCard.Number));
                 cbNewIncomeCraditCard.Items.Add(CreditCardToStrinConverter.Convert(creditCard.Type, creditCard.Number));
                 cbNewPlaningTranCard.Items.Add(CreditCardToStrinConverter.Convert(creditCard.Type, creditCard.Number));
+                cbCreditCard.Items.Add(CreditCardToStrinConverter.Convert(creditCard.Type, creditCard.Number));
             }
         }
 

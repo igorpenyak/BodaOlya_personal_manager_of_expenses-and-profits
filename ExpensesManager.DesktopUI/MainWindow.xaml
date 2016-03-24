@@ -233,7 +233,7 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
-                    <DataGrid Name="dgIncomesGrid" Grid.Row="0" SelectedCellsChanged="dgIncomesGrid_SelectedCellsChanged">
+                    <DataGrid Name="dgIncomesGrid" Grid.Row="0" SelectedCellsChanged="dgIncomesGrid_SelectedCellsChanged" AutoGenerateColumns="False">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="№" Binding="{Binding Id}"/>
                             <DataGridTextColumn Header="Name" Width="140" Binding="{Binding Name}"/>
