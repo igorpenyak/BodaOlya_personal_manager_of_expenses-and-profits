@@ -17,6 +17,7 @@ namespace ExpensesManager.DesktopUI.Code
             {
                 throw new InvalidOperationException("Current user has been already specified");
             }
+            
             currentUser = user;
         }
 

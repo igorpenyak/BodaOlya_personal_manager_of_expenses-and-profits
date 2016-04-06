@@ -13,8 +13,6 @@ namespace ExpensesManager.DesktopUI.Code
         {
             using (MD5 cryptoProvider = new MD5CryptoServiceProvider())
             {
-
-
                 byte[] result = cryptoProvider.ComputeHash(Encoding.Default.GetBytes(text));
 
                 StringBuilder stringHash = new StringBuilder();

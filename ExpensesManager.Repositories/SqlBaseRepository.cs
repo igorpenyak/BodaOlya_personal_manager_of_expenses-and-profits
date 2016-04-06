@@ -8,7 +8,7 @@ namespace ExpensesManager.Repositories
 {
     public abstract class SqlBaseRepository
     {
-        protected string ConnectionString { get; }
+        protected string ConnectionString { get; set; }
 
         protected SqlBaseRepository(string connection)
         {

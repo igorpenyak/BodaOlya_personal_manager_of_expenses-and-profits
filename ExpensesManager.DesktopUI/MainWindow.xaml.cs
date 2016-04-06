@@ -61,10 +61,10 @@ namespace ExpensesManager.DesktopUI
 
             foreach (var c in creditCards)
             {
-                cbNewExpenseCraditCard.Items.Add(CreditCardToStrinConverter.Convert(c.Type, c.Number));
-                cbNewIncomeCraditCard.Items.Add(CreditCardToStrinConverter.Convert(c.Type, c.Number));
-                cbNewPlaningTranCard.Items.Add(CreditCardToStrinConverter.Convert(c.Type, c.Number));
-                cbCreditCard.Items.Add(CreditCardToStrinConverter.Convert(c.Type, c.Number));
+                cbNewExpenseCraditCard.Items.Add(CreditCardToStringConverter.Convert(c.Type, c.Number));
+                cbNewIncomeCraditCard.Items.Add(CreditCardToStringConverter.Convert(c.Type, c.Number));
+                cbNewPlaningTranCard.Items.Add(CreditCardToStringConverter.Convert(c.Type, c.Number));
+                cbCreditCard.Items.Add(CreditCardToStringConverter.Convert(c.Type, c.Number));
             }
 
             _expenseList = new SqlTransactionRepository(_connectionString).SelectAllTransactions("Expense", CurrentUser.Id).ToList();
@@ -211,10 +211,10 @@ namespace ExpensesManager.DesktopUI
             }
             else
             {
-                cbNewExpenseCraditCard.Items.Add(CreditCardToStrinConverter.Convert(creditCard.Type, creditCard.Number));
-                cbNewIncomeCraditCard.Items.Add(CreditCardToStrinConverter.Convert(creditCard.Type, creditCard.Number));
-                cbNewPlaningTranCard.Items.Add(CreditCardToStrinConverter.Convert(creditCard.Type, creditCard.Number));
-                cbCreditCard.Items.Add(CreditCardToStrinConverter.Convert(creditCard.Type, creditCard.Number));
+                cbNewExpenseCraditCard.Items.Add(CreditCardToStringConverter.Convert(creditCard.Type, creditCard.Number));
+                cbNewIncomeCraditCard.Items.Add(CreditCardToStringConverter.Convert(creditCard.Type, creditCard.Number));
+                cbNewPlaningTranCard.Items.Add(CreditCardToStringConverter.Convert(creditCard.Type, creditCard.Number));
+                cbCreditCard.Items.Add(CreditCardToStringConverter.Convert(creditCard.Type, creditCard.Number));
             }
         }
 
@@ -225,7 +225,7 @@ namespace ExpensesManager.DesktopUI
 
             var dateFrom = DateTime.Parse(dpDateFrom.Text);
             var dateTo = DateTime.Parse(dpDateTo.Text);
-            var number = CreditCardToStrinConverter.GetNumber(card);
+            var number = CreditCardToStringConverter.GetNumber(card);
 
             var expenses = new SqlTransactionRepository(_connectionString).SelectTransactionsByDateCard(number, dateFrom, dateTo, "Expense");
             var planingExpense = new SqlTransactionRepository(_connectionString).SelectTransactionsByDateCard(number, dateFrom, dateTo, "Planing Expense");

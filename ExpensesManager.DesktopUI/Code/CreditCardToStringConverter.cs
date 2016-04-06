@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExpensesManager.DesktopUI.Code
 {
-    public static class CreditCardToStrinConverter
+    public static class CreditCardToStringConverter
     {
         public static string Convert(string type, long number)
         {
@@ -15,7 +15,6 @@ namespace ExpensesManager.DesktopUI.Code
 
         public static long GetNumber(string creditCard)
         {
-
             string number = string.Join("", creditCard.ToCharArray().Where(Char.IsDigit));
             return long.Parse(number);
         }
